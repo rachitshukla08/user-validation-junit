@@ -35,5 +35,36 @@ public class UserValidatorTest {
 		boolean result = validator.validateFirstName("Rachit$");
 		assertEquals(false, result);
 	}
+	//Tests for first name
+
+	@Test
+	public void givenLastName_WhenProper_ShouldReturnTrue() {
+		UserValidator validator = new UserValidator();
+		boolean result = validator.validateLastName("Shukla");
+		assertEquals(true, result);
+	}
+	
+	@Test
+	public void givenLastName_WhenShort_ShouldReturnFalse() {
+		UserValidator validator = new UserValidator();
+		boolean result = validator.validateLastName("Sh");
+		assertEquals(false, result);
+	}
+	
+	@Test
+	public void givenLastName_WhenNotCaps_ShouldReturnFalse() {
+		UserValidator validator = new UserValidator();
+		boolean result = validator.validateLastName("shukla");
+		assertEquals(false, result);
+	}
+	
+	@Test
+	public void givenLastName_WhenSpecialChar_ShouldReturnFalse() {
+		UserValidator validator = new UserValidator();
+		boolean result = validator.validateLastName("Shukla$");
+		assertEquals(false, result);
+	}
+	//Tests for last name
+	
 
 }
