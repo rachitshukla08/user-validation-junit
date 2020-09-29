@@ -123,34 +123,34 @@ public class UserValidatorTest {
 		assertEquals(false, result);
 	}
 	// Tests for Email ID
-	
+
 	@Test
 	public void givenPassword_WhenProper_ShouldReturnTrue() {
 		UserValidator validator = new UserValidator();
 		boolean result = validator.validatePassword("aBcd123@m");
-		assertEquals(true,result);
+		assertEquals(true, result);
 	}
-	
+
 	@Test
 	public void givenPassword_WhenProperCase2_ShouldReturnTrue() {
 		UserValidator validator = new UserValidator();
 		boolean result = validator.validatePassword("@ABC12345");
-		assertEquals(true,result);
+		assertEquals(true, result);
 	}
-	
+
 	@Test
 	public void givenPassword_WhenNoUpperCase_ShouldReturnFalse() {
 		UserValidator validator = new UserValidator();
 		boolean result = validator.validatePassword("ball@1234");
-		assertEquals(false,result);
+		assertEquals(false, result);
 	}
-	
+
 	@Test
 	public void givenPassword_WhenNoSpecialChar_ShouldReturnFalse() {
 		UserValidator validator = new UserValidator();
 		boolean result = validator.validatePassword("Apple98765");
-		assertEquals(false,result);
+		assertEquals(false, result);
 	}
-	//Tests for password
-	
+	// Tests for password
+
 }
