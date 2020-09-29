@@ -65,6 +65,7 @@ public class UserValidatorTest {
 		assertEquals(false, result);
 	}
 	//Tests for last name
+	
 	@Test
 	public void givenMobileNumber_WhenProper_ShouldReturnTrue() {
 		UserValidator validator = new UserValidator();
@@ -90,6 +91,35 @@ public class UserValidatorTest {
 	public void givenMobileNumber_WhenNotTenDigits_ShouldReturnFalse() {
 		UserValidator validator = new UserValidator();
 		boolean result = validator.validateMobile("91 987654321");
+		assertEquals(false,result);
+	}
+	//Tests for mobile number
+	
+	@Test
+	public void givenEmail_WhenProper_ShouldReturnTrue() {
+		UserValidator validator = new UserValidator();
+		boolean result = validator.validateEmail("abc@yahoo.com");
+		assertEquals(true,result);
+	}
+	
+	@Test 
+	public void givenEmail_ProperSecondLevelDomain_ShouldReturnTrue() {
+		UserValidator validator = new UserValidator();
+		boolean result = validator.validateEmail("abc.100@abc.com.au");
+		assertEquals(true,result);
+	}
+	
+	@Test 
+	public void givenEmail_InvalidTLD_ShouldReturnFalse() {
+		UserValidator validator = new UserValidator();
+		boolean result = validator.validateEmail("abc@123.c");
+		assertEquals(false,result);
+	}
+	
+	@Test 
+	public void givenEmail_HavingMultipleTLD_ShouldReturnFalse() {
+		UserValidator validator = new UserValidator();
+		boolean result = validator.validateEmail("abc@gmail.com.aa.au");
 		assertEquals(false,result);
 	}
 	
