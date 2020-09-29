@@ -65,6 +65,33 @@ public class UserValidatorTest {
 		assertEquals(false, result);
 	}
 	//Tests for last name
+	@Test
+	public void givenMobileNumber_WhenProper_ShouldReturnTrue() {
+		UserValidator validator = new UserValidator();
+		boolean result = validator.validateMobile("91 9876543210");
+		assertEquals(true, result);
+	}
+	
+	@Test
+	public void givenMobileNumber_WhenCodeMoreThanTwoDigits_ShouldReturnTrue() {
+		UserValidator validator = new UserValidator();
+		boolean result = validator.validateMobile("124 9876543210");
+		assertEquals(true, result);
+	}
+	
+	@Test 
+	public void givenMobileNumber_WhenHasAnyNonNumeric_ShouldReturnFalse() {
+		UserValidator validator = new UserValidator();
+		boolean result = validator.validateMobile("91 9876a43210");
+		assertEquals(false,result);
+	}
+	
+	@Test 
+	public void givenMobileNumber_WhenNotTenDigits_ShouldReturnFalse() {
+		UserValidator validator = new UserValidator();
+		boolean result = validator.validateMobile("91 987654321");
+		assertEquals(false,result);
+	}
 	
 
 }
